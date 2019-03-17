@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>Create new order</h2>
+  <form #form="ngForm" (ngSubmit)="createOrder(form.value)">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputName">Customer Name</label>
+        <input type="text" class="form-control" id="inputName" name="name" required ngModel>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputBusinessNo">Business Order No</label>
+        <input type="text" class="form-control" id="inputBusinessNo" name="businessNo" ngModel>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputItem">Item</label>
+        <select class="form-control" id="inputItem" name="item" ngModel>
+          <option>Handlebars</option>
+          <option>Bicycle Forks</option>
+          <option>Wheels</option>
+          <option>Bicycle Frames</option>
+          <option>Headtube</option>
+          <option>Bicycle Stems</option>
+          <option>Pedals</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputItemDescription">Item Description</label>
+        <input type="text" class="form-control" id="inputItemDescription" name="itemDescription" ngModel>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-1">
+        <label for="inputQuantity">Quantity</label>
+        <input type="number" min="0" max="1000" step="1" class="form-control" id="inputQuantity" name="quantity"
+          ngModel>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputDeliveryDate">Delivery Date</label>
+        <input type="date" class="form-control" id="inputDeliveryDate" name="deliveryDate" ngModel>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputShipment">Mode of Shipment</label>
+        <select class="form-control" id="inputShipment" name="shipment" ngModel>
+          <option>Courier</option>
+          <option>Post</option>
+          <option>Pick-up</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCourierName">Courier Name</label>
+        <input type="text" class="form-control" id="inputCourierName" name="courierName" ngModel>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCourierTel">Telephone</label>
+        <input type="text" class="form-control" id="inputCourierTel" name="courierTel" ngModel>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

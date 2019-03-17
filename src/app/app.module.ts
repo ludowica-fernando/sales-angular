@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ManageCustomerComponent } from './manage-customer/manage-customer.component';
 import { ManageEnquiryComponent } from './manage-enquiry/manage-enquiry.component';
 import { HomeComponent } from './home/home.component';
+import { ManageOrderComponent } from './manage-order/manage-order.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     ManageCustomerComponent,
     ManageEnquiryComponent,
-    HomeComponent
+    HomeComponent,
+    ManageOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { HomeComponent } from './home/home.component';
       { path: 'login', component: LoginComponent },
       { path: 'create-customer', component: ManageCustomerComponent },
       { path: 'create-enquiry', component: ManageEnquiryComponent },
+      { path: 'create-order', component: ManageOrderComponent },
       { path: 'home', component: HomeComponent }
     ])
   ],
