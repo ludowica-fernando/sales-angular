@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Register new customer</h2>
+    <form #form="ngForm" (ngSubmit)="createCustomer(form.value)">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" name="name" required ngModel>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputTradingName">Trading Name</label>
+                <input type="text" class="form-control" id="inputTradingName" name="tradingName" ngModel>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputMainLocation">Main Location</label>
+                <input type="text" class="form-control" id="inputMainLocation" name="mainLocation" ngModel>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputDeliveryLocation">Delivery Location</label>
+                <input type="text" class="form-control" id="inputDeliveryLocation" name="deliveryLocation" ngModel>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputCollectionLocation">Collection Location</label>
+                <input type="text" class="form-control" id="inputCollectionLocation" name="collectionLocation" ngModel>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputTelephone">Telephone</label>
+                <input type="text" class="form-control" id="inputTelephone" name="telephone" ngModel>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" ngModel>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
