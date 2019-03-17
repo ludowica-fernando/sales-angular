@@ -9,6 +9,7 @@ import { ManageCustomerComponent } from './manage-customer/manage-customer.compo
 import { ManageEnquiryComponent } from './manage-enquiry/manage-enquiry.component';
 import { HomeComponent } from './home/home.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
+import { ManageReturnsComponent } from './manage-returns/manage-returns.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ManageOrderComponent } from './manage-order/manage-order.component';
     ManageCustomerComponent,
     ManageEnquiryComponent,
     HomeComponent,
-    ManageOrderComponent
+    ManageOrderComponent,
+    ManageReturnsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { ManageOrderComponent } from './manage-order/manage-order.component';
       { path: 'create-customer', component: ManageCustomerComponent },
       { path: 'create-enquiry', component: ManageEnquiryComponent },
       { path: 'create-order', component: ManageOrderComponent },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'returns', component: ManageReturnsComponent }
     ])
   ],
   providers: [],
