@@ -12,4 +12,14 @@ export class ManageOrderComponent implements OnInit {
   ngOnInit() {
   }
 
+  hide = true;
+  onChange(option) {
+    if (option == 'courier') {
+      this.hide = false;
+    }
+    else {
+      this.hide = true;
+    }
+  }
+
 }

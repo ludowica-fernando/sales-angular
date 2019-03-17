@@ -42,17 +42,16 @@
       </div>
       <div class="form-group col-md-4">
         <label for="inputShipment">Mode of Shipment</label>
-        <select class="form-control" id="inputShipment" name="shipment" ngModel>
-          <option>Courier</option>
-          <option>Post</option>
-          <option>Pick-up</option>
+        <select class="form-control" id="inputShipment" name="shipment" (change)="onChange($event.target.value)" ngModel>
+          <option value="courier">Courier</option>
+          <option value="post">Post</option>
+          <option value="pickup">Pick-up</option>
         </select>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4" [hidden]="hide">
         <label for="inputCourierName">Courier Name</label>
         <input type="text" class="form-control" id="inputCourierName" name="courierName" ngModel>
-      </div>
-      <div class="form-group col-md-4">
+
         <label for="inputCourierTel">Telephone</label>
         <input type="text" class="form-control" id="inputCourierTel" name="courierTel" ngModel>
       </div>
