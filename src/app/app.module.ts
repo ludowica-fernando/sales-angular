@@ -10,6 +10,7 @@ import { ManageEnquiryComponent } from './manage-enquiry/manage-enquiry.componen
 import { HomeComponent } from './home/home.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ManageReturnsComponent } from './manage-returns/manage-returns.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ManageReturnsComponent } from './manage-returns/manage-returns.componen
     ManageEnquiryComponent,
     HomeComponent,
     ManageOrderComponent,
-    ManageReturnsComponent
+    ManageReturnsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
