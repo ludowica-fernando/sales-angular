@@ -1,3 +1,4 @@
+import { CustomerService } from './../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageCustomerComponent implements OnInit {
 
-  constructor() { }
+  customerList = [];
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
   }
 
   createCustomer(form) {
     console.log(form);
+    // this.customerService.addCustomer(form).subscribe();
   }
 }

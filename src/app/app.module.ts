@@ -1,3 +1,4 @@
+import { CustomerService } from './services/customer.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
@@ -11,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ManageReturnsComponent } from './manage-returns/manage-returns.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'create-customer', component: ManageCustomerComponent },
@@ -36,7 +39,9 @@ import { NavbarComponent } from './navbar/navbar.component';
       { path: 'returns', component: ManageReturnsComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    CustomerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
