@@ -4,37 +4,37 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputName">Name</label>
-                <input type="text" class="form-control" id="inputName" name="name" required ngModel>
+                <input #name="ngModel" [(ngModel)]="customer.name" type="text" class="form-control" id="inputName" name="name" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="inputTradingName">Trading Name</label>
-                <input type="text" class="form-control" id="inputTradingName" name="tradingName" ngModel>
+                <input #tradingName="ngModel" [(ngModel)]="customer.tradingName" type="text" class="form-control" id="inputTradingName" name="tradingName">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="inputMainLocation">Main Location</label>
-                <input type="text" class="form-control" id="inputMainLocation" name="mainLocation" ngModel>
+                <input #mainLocation = "ngModel" [(ngModel)]="customer.customerContact.mainLocation" type="text" class="form-control" id="inputMainLocation" name="mainLocation">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputDeliveryLocation">Delivery Location</label>
-                <input type="text" class="form-control" id="inputDeliveryLocation" name="deliveryLocation" ngModel>
+                <input #deliveryLocation = "ngModel" [(ngModel)]="customer.customerContact.deliveryLocation" type="text" class="form-control" id="inputDeliveryLocation" name="deliveryLocation">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputCollectionLocation">Collection Location</label>
-                <input type="text" class="form-control" id="inputCollectionLocation" name="collectionLocation" ngModel>
+                <input #collectionLocation = "ngModel" [(ngModel)]="customer.customerContact.collectionLocation" type="text" class="form-control" id="inputCollectionLocation" name="collectionLocation">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputTelephone">Telephone</label>
-                <input type="text" class="form-control" id="inputTelephone" name="telephone" ngModel>
+                <input #telephone = "ngModel" [(ngModel)]="customer.customerContact.telephone" type="text" class="form-control" id="inputTelephone" name="telephone">
             </div>
             <div class="form-group col-md-4">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" name="email" ngModel>
+                <input #email = "ngModel" [(ngModel)]="customer.customerContact.email" type="email" class="form-control" id="inputEmail" name="email">
             </div>
         </div>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../models/order';
+import { OrdersService } from '../services/orders.service';
 
 @Component({
   selector: 'app-manage-order',
@@ -7,19 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageOrderComponent implements OnInit {
 
-  constructor() { }
+  order: Order = {
+    id: null,
+    businessId: null,
+    customerName: null,
+    item: null,
+    price: null,
+    quantity: null,
+    deliveryDate: null,
+    modeOfShipment: null,
+    orderStatus: {
+      productionStatus: null,
+      orderStatus: null,
+      warehouseStatus: null
+    }
+  };
+
+  constructor(
+    private orderService: OrdersService
+  ) { }
 
   ngOnInit() {
   }
 
-  hide = true;
-  onChange(option) {
-    if (option == 'courier') {
-      this.hide = false;
-    }
-    else {
-      this.hide = true;
-    }
+  // hide = true;
+  // onChange(option) {
+  //   if (option == 'courier') {
+  //     this.hide = false;
+  //   }
+  //   else {
+  //     this.hide = true;
+  //   }
+  // }
+
+  createOrder() {
+    console.log(this.order);
+    this.orderService.addOrder(this.order).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

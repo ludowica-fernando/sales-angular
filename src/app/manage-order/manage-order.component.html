@@ -4,17 +4,19 @@
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputName">Customer Name</label>
-        <input type="text" class="form-control" id="inputName" name="name" required ngModel>
+        <input #name="ngModel" [(ngModel)]="order.customerName" type="text" class="form-control" id="inputName"
+          name="customerName" required>
       </div>
       <div class="form-group col-md-4">
         <label for="inputBusinessNo">Business Order No</label>
-        <input type="text" class="form-control" id="inputBusinessNo" name="businessNo" ngModel>
+        <input #businessId="ngModel" [(ngModel)]="order.businessId" type="text" class="form-control"
+          id="inputBusinessNo" name="businessId">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputItem">Item</label>
-        <select class="form-control" id="inputItem" name="item" ngModel>
+        <select #item="ngModel" [(ngModel)]="order.item" class="form-control" id="inputItem" name="item">
           <option>Handlebars</option>
           <option>Bicycle Forks</option>
           <option>Wheels</option>
@@ -24,36 +26,71 @@
           <option>Pedals</option>
         </select>
       </div>
-      <div class="form-group col-md-4">
+      <!-- <div class="form-group col-md-4">
         <label for="inputItemDescription">Item Description</label>
-        <input type="text" class="form-control" id="inputItemDescription" name="itemDescription" ngModel>
-      </div>
+        <input #item="ngModel" [(ngModel)]="order.item" type="text" class="form-control" id="inputItemDescription" name="itemDescription">
+      </div> -->
     </div>
 
     <div class="form-row">
       <div class="form-group col-md-1">
         <label for="inputQuantity">Quantity</label>
-        <input type="number" min="0" max="1000" step="1" class="form-control" id="inputQuantity" name="quantity"
-          ngModel>
+        <input #quantity="ngModel" [(ngModel)]="order.quantity" type="number" min="0" max="1000" step="1"
+          class="form-control" id="inputQuantity" name="quantity">
       </div>
       <div class="form-group col-md-4">
         <label for="inputDeliveryDate">Delivery Date</label>
-        <input type="date" class="form-control" id="inputDeliveryDate" name="deliveryDate" ngModel>
+        <input #deliveryDate="ngModel" [(ngModel)]="order.deliveryDate" type="date" class="form-control"
+          id="inputDeliveryDate" name="deliveryDate">
       </div>
       <div class="form-group col-md-4">
         <label for="inputShipment">Mode of Shipment</label>
-        <select class="form-control" id="inputShipment" name="shipment" (change)="onChange($event.target.value)" ngModel>
+        <select #modeOfShipment="ngModel" [(ngModel)]="order.modeOfShipment" class="form-control" id="inputShipment"
+          name="modeOfShipment">
+          <!-- (change)="onChange($event.target.value)" -->
           <option value="courier">Courier</option>
           <option value="post">Post</option>
           <option value="pickup">Pick-up</option>
         </select>
       </div>
-      <div class="form-group col-md-4" [hidden]="hide">
+      <!-- <div class="form-group col-md-4" [hidden]="hide">
         <label for="inputCourierName">Courier Name</label>
-        <input type="text" class="form-control" id="inputCourierName" name="courierName" ngModel>
+        <input #quantity="ngModel" [(ngModel)]="order.quantity" type="text" class="form-control" id="inputCourierName" name="courierName">
 
         <label for="inputCourierTel">Telephone</label>
-        <input type="text" class="form-control" id="inputCourierTel" name="courierTel" ngModel>
+        <input #quantity="ngModel" [(ngModel)]="order.quantity" type="text" class="form-control" id="inputCourierTel" name="courierTel">
+      </div> -->
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputShipment">Production Status</label>
+        <select #productionStatus="ngModel" [(ngModel)]="order.orderStatus.productionStatus" class="form-control"
+          id="inputShipment" name="productionStatus" (change)="onChange($event.target.value)">
+          <option value="done">Done</option>
+          <option value="notStarted">Not started</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputShipment">Order Status</label>
+        <select #orderStatus="ngModel" [(ngModel)]="order.orderStatus.orderStatus" class="form-control"
+          id="inputShipment" name="orderStatus" (change)="onChange($event.target.value)">
+          <option value="done">Done</option>
+          <option value="notStarted">Not started</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputShipment">Warehouse Status</label>
+        <select #warehouseStatus="ngModel" [(ngModel)]="order.orderStatus.warehouseStatus" class="form-control"
+          id="inputShipment" name="warehouseStatus" (change)="onChange($event.target.value)">
+          <option value="done">Done</option>
+          <option value="notStarted">Not started</option>
+          <option value="pending">Pending</option>
+        </select>
       </div>
     </div>
 

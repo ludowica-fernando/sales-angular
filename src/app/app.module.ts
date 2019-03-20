@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ManageReturnsComponent } from './manage-returns/manage-returns.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgbModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'create-customer', component: ManageCustomerComponent },

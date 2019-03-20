@@ -1,5 +1,7 @@
 import { CustomerService } from './../services/customer.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Customer } from '../models/customer';
 
 @Component({
   selector: 'app-manage-customer',
@@ -8,14 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageCustomerComponent implements OnInit {
 
+  customer: Customer = {
+    id: null,
+    name: null,
+    tradingName: null,
+    paymentFlag: null,
+    customerContact: {
+      mainLocation: null,
+      deliveryLocation: null,
+      collectionLocation: null,
+      telephone: null,
+      email: null
+    }
+  };
+
   customerList = [];
-  constructor(private customerService: CustomerService) { }
+  constructor(
+    private customerService: CustomerService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit() {
   }
 
   createCustomer(form) {
-    console.log(form);
-    // this.customerService.addCustomer(form).subscribe();
+    console.log(this.customer);
+    this.customerService.addCustomer(this.customer).subscribe(data => {
+      console.log(data);
+    });
   }
 }
