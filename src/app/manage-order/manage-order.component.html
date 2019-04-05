@@ -8,6 +8,11 @@
           name="customerName" required>
       </div>
       <div class="form-group col-md-4">
+        <label for="inputCustomerId">Customer ID</label>
+        <input #customerId="ngModel" [(ngModel)]="order.customerId" type="text" class="form-control"
+          id="inputCustomerId" name="customerId">
+      </div>
+      <div class="form-group col-md-4">
         <label for="inputBusinessNo">Business Order No</label>
         <input #businessId="ngModel" [(ngModel)]="order.businessId" type="text" class="form-control"
           id="inputBusinessNo" name="businessId">

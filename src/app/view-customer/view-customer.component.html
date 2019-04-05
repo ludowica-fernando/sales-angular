@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Trading Name</th>
+        <th scope="col">Credit Status</th>
+        <!-- <th scope="col">Main Location</th>
+        <th scope="col">Delivery Location</th>
+        <th scope="col">Collection Location</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telephone</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of customerList">
+        <td>{{ cust.id }}</td>
+        <td>{{ cust.name }}</td>
+        <td>{{ cust.tradingName }}</td>
+        <td>{{ cust.paymentFlag }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

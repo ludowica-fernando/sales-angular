@@ -4,21 +4,21 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class EnquiryService {
 
-  apiUrl = "http://localhost:8080/orders";
+  apiUrl = "http://localhost:8080/enquiry";
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<[]>(this.apiUrl);
   }
 
-  getOrder(id) {
+  getEnquiry(id) {
     return this.http.get(this.apiUrl + '/${id}');
   }
 
-  addOrder(order){
-    return this.http.post(this.apiUrl, order);
+  addEnquiry(enquiry) {
+    return this.http.post(this.apiUrl, enquiry);
   }
 }
