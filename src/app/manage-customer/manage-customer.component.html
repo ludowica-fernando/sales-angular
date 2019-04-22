@@ -1,43 +1,47 @@
 <div class="container">
     <h2>Register new customer</h2>
-    <form #form="ngForm" (ngSubmit)="createCustomer(form.value)">
-        <div class="form-row">
+    <div class="form-column">
+        <form #form="ngForm" (ngSubmit)="createCustomer(form.value)">
             <div class="form-group col-md-6">
-                <label for="inputName">Name</label>
-                <input #name="ngModel" [(ngModel)]="customer.name" type="text" class="form-control" id="inputName" name="name" required>
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name"  required ngModel>
             </div>
             <div class="form-group col-md-6">
-                <label for="inputTradingName">Trading Name</label>
-                <input #tradingName="ngModel" [(ngModel)]="customer.tradingName" type="text" class="form-control" id="inputTradingName" name="tradingName">
+                <label for="tradingName">Trading Name</label>
+                <input type="text" class="form-control" id="tradingName" name="tradingName" ngModel>
             </div>
-        </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputMainLocation">Main Location</label>
-                <input #mainLocation = "ngModel" [(ngModel)]="customer.customerContact.mainLocation" type="text" class="form-control" id="inputMainLocation" name="mainLocation">
+            <div class="form-group col-md-6">
+                <label for="mainLocation">Main Location</label>
+                <input type="text" class="form-control" id="mainLocation" name="mainLocation" ngModel>
             </div>
-            <div class="form-group col-md-4">
-                <label for="inputDeliveryLocation">Delivery Location</label>
-                <input #deliveryLocation = "ngModel" [(ngModel)]="customer.customerContact.deliveryLocation" type="text" class="form-control" id="inputDeliveryLocation" name="deliveryLocation">
+            <div class="form-group col-md-6">
+                <label for="deliveryLocation">Delivery Location</label>
+                <input type="text" class="form-control" id="deliveryLocation" name="deliveryLocation" ngModel>
             </div>
-            <div class="form-group col-md-4">
-                <label for="inputCollectionLocation">Collection Location</label>
-                <input #collectionLocation = "ngModel" [(ngModel)]="customer.customerContact.collectionLocation" type="text" class="form-control" id="inputCollectionLocation" name="collectionLocation">
+            <div class="form-group col-md-6">
+                <label for="collectionLocation">Collection Location</label>
+                <input type="text" class="form-control" id="collectionLocation" name="collectionLocation" ngModel>
             </div>
-        </div>
 
-        <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="inputTelephone">Telephone</label>
-                <input #telephone = "ngModel" [(ngModel)]="customer.customerContact.telephone" type="text" class="form-control" id="inputTelephone" name="telephone">
+                <label for="telephone">Telephone</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" ngModel>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputEmail">Email</label>
-                <input #email = "ngModel" [(ngModel)]="customer.customerContact.email" type="email" class="form-control" id="inputEmail" name="email">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" ngModel>
             </div>
-        </div>
+            <div class="form-group col-md-2">
+                <label for="paymentFlag">Set Payment Flag</label>
+                <select class="form-control" id="paymentFlag" name="paymentFlag" ngModel>
+                    <option>Clear</option>
+                    <option>Blocked</option>
+                    <option>Pending</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
 
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
 </div>

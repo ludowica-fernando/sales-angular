@@ -10,19 +10,17 @@ import { Customer } from '../models/customer';
 })
 export class ManageCustomerComponent implements OnInit {
 
-  customer: Customer = {
-    id: null,
-    name: null,
-    tradingName: null,
-    paymentFlag: null,
-    customerContact: {
-      mainLocation: null,
-      deliveryLocation: null,
-      collectionLocation: null,
-      telephone: null,
-      email: null
-    }
-  };
+  // customer: Customer = {
+  //   id: null,
+  //   name: null,
+  //   tradingName: null,
+  //   paymentFlag: null,
+  //   mainLocation: null,
+  //   deliveryLocation: null,
+  //   collectionLocation: null,
+  //   telephone: null,
+  //   email: null
+  // };
 
   customerList = [];
   constructor(
@@ -34,8 +32,7 @@ export class ManageCustomerComponent implements OnInit {
   }
 
   createCustomer(form) {
-    console.log(this.customer);
-    this.customerService.addCustomer(this.customer).subscribe(data => {
+    this.customerService.addCustomer(form).subscribe(data => {
       console.log(data);
     });
   }

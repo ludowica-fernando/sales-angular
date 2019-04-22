@@ -15,13 +15,11 @@ export class ViewCustomerComponent implements OnInit {
     name: null,
     tradingName: null,
     paymentFlag: null,
-    customerContact: {
-      mainLocation: null,
-      deliveryLocation: null,
-      collectionLocation: null,
-      telephone: null,
-      email: null
-    }
+    mainLocation: null,
+    deliveryLocation: null,
+    collectionLocation: null,
+    telephone: null,
+    email: null
   };
 
   constructor(

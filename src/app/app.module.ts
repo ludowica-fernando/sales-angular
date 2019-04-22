@@ -16,6 +16,8 @@ import { ManageOrderComponent } from './manage-order/manage-order.component';
 import { ManageReturnsComponent } from './manage-returns/manage-returns.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
     ManageOrderComponent,
     ManageReturnsComponent,
     NavbarComponent,
-    ViewCustomerComponent
+    ViewCustomerComponent,
+    ViewEnquiryComponent,
+    ViewOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
       { path: 'create-order', component: ManageOrderComponent },
       { path: 'home', component: HomeComponent },
       { path: 'returns', component: ManageReturnsComponent },
-      { path: 'view-customer', component: ViewCustomerComponent }
+      { path: 'view-customer', component: ViewCustomerComponent },
+      { path: 'view-enquiry', component: ViewEnquiryComponent },
+      { path: 'view-order', component: ViewOrderComponent }
     ])
   ],
   providers: [

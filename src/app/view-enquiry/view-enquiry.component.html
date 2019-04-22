@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Enquiry ID</th>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Item</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Item Availability</th>
+        <th scope="col">Delivery Method</th>
+        <th scope="col">Credit Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let enquiry of enquiryList">
+        <td>{{ enquiry.id }}</td>
+        <td>{{ enquiry.customerId }}</td>
+        <td>{{ enquiry.item }}</td>
+        <td>{{ enquiry.qty }}</td>
+        <td>{{ enquiry.itemAvailability }}</td>
+        <td>{{ enquiry.deliveryMethod }}</td>
+        <td>{{ enquiry.creditStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
