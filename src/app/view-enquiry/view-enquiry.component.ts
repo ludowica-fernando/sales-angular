@@ -9,6 +9,7 @@ import { EnquiryService } from '../services/enquiry.service';
 })
 
 export class ViewEnquiryComponent implements OnInit {
+
   enquiryList = [];
 
   customer: Enquiry = {

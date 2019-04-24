@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnquiryService } from '../services/enquiry.service';
 
 @Component({
   selector: 'app-manage-enquiry',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageEnquiryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private enquiryService: EnquiryService
+  ) { }
 
   ngOnInit() {
   }
+
   createEnquiry(form) {
-    console.log(form);
+    this.enquiryService.addEnquiry(form).subscribe(data => {
+      console.log(form);
+    });
   }
 }

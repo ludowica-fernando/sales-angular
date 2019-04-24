@@ -4,8 +4,8 @@ export interface Order {
     customerName: string,
     item: string,
     price: number,
-    quantity: number,
-    deliveryDate: string,
+    qty: number,
+    deliveryDate:string,
     modeOfShipment: string,
     orderStatus: {
         productionStatus: string,

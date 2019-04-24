@@ -15,7 +15,7 @@ export class ManageOrderComponent implements OnInit {
     customerName: null,
     item: null,
     price: null,
-    quantity: null,
+    qty: null,
     deliveryDate: null,
     modeOfShipment: null,
     orderStatus: {
