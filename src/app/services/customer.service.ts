@@ -1,3 +1,4 @@
+import { Customer } from './../models/customer';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -15,14 +16,14 @@ export class CustomerService {
   }
 
   getCustomer(id) {
-    return this.http.get(this.apiUrl + '/${id}');
+    return this.http.get<Customer>(this.apiUrl + '/${id}');
   }
 
-  addCustomer(customer){
+  addCustomer(customer) {
     return this.http.post(this.apiUrl, customer);
   }
 
-  updateCustomer(customer){
+  updateCustomer(customer) {
     return this.http.put(this.apiUrl, customer);
   }
 }

@@ -43,7 +43,6 @@ export class ManageOrderComponent implements OnInit {
   // }
 
   createOrder() {
-    console.log(this.order);
     this.orderService.addOrder(this.order).subscribe(data => {
       console.log(data);
     });

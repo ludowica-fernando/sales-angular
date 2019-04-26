@@ -8,67 +8,52 @@
     <tbody>
       <tr>
         <td colspan="1">
-          <form class="well form-horizontal">
+          <form #form="ngForm" (ngSubmit)="createOrder(form.value)">
             <fieldset>
               <div class="form-group">
                 <label class="col-md-4 control-label">Full Name</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-user"></i></span><input id="name" name="name"
-                      placeholder="Full Name" class="form-control" required="true" value="" type="text"></div>
+                        class="glyphicon glyphicon-user"></i></span><input #name="ngModel"
+                      [(ngModel)]="order.customerName" type="text" class="form-control" id="customerName"
+                      name="customerName" required></div><br>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 1</label>
+                <label class="col-md-4 control-label">Customer ID</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="addressLine1" name="addressLine1"
-                      placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></div>
+                        class="glyphicon glyphicon-home"></i></span><input #customerId="ngModel"
+                      [(ngModel)]="order.customerId" type="text" class="form-control" id="customerId" name="customerId">
+                  </div><br>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 2</label>
+                <label class="col-md-4 control-label">Business ID</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2"
-                      placeholder="Address Line 2" class="form-control" required="true" value="" type="text"></div>
+                        class="glyphicon glyphicon-home"></i></span><input #businessId="ngModel"
+                      [(ngModel)]="order.businessId" type="text" class="form-control" id="businessId" name="businessId">
+                  </div><br>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-4 control-label">City</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City"
-                      class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">State/Province/Region</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="state" name="state"
-                      placeholder="State/Province/Region" class="form-control" required="true" value="" type="text">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Postal Code/ZIP</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="postcode" name="postcode"
-                      placeholder="Postal Code/ZIP" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Country</label>
+                <label class="col-md-4 control-label">Item</label>
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group">
                     <span class="input-group-addon" style="max-width: 100%;"><i
                         class="glyphicon glyphicon-list"></i></span>
-                    <select class="selectpicker form-control">
-                      <option>A really long option to push the menu over the edget</option>
+                    <select class="selectpicker form-control" #item="ngModel" [(ngModel)]="order.item"
+                      class="form-control" id="item" name="item">
+                      <option>Handlebars</option>
+                      <option>Bicycle Forks</option>
+                      <option>Wheels</option>
+                      <option>Bicycle Frames</option>
+                      <option>Headtube</option>
+                      <option>Bicycle Stems</option>
+                      <option>Pedals</option>
                     </select>
-                  </div>
+                  </div><br>
                 </div>
               </div>
               <div class="form-group">
@@ -76,7 +61,7 @@
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group"><span class="input-group-addon"><i
                         class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email"
-                      placeholder="Email" class="form-control" required="true" value="" type="text"></div>
+                      placeholder="Email" class="form-control" required="true" value="" type="text"></div><br>
                 </div>
               </div>
               <div class="form-group">
@@ -84,92 +69,10 @@
                 <div class="col-md-8 inputGroupContainer">
                   <div class="input-group"><span class="input-group-addon"><i
                         class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber"
-                      placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
+                      placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div><br>
                 </div>
               </div>
-            </fieldset>
-          </form>
-        </td>
-        <td colspan="1">
-          <form class="well form-horizontal">
-            <fieldset>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Full Name</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-user"></i></span><input id="fullName" name="fullName"
-                      placeholder="Full Name" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 1</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="addressLine1" name="addressLine1"
-                      placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Address Line 2</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="addressLine2" name="addressLine2"
-                      placeholder="Address Line 2" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">City</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="city" name="city" placeholder="City"
-                      class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">State/Province/Region</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="state" name="state"
-                      placeholder="State/Province/Region" class="form-control" required="true" value="" type="text">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Postal Code/ZIP</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input id="postcode" name="postcode"
-                      placeholder="Postal Code/ZIP" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Country</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <span class="input-group-addon" style="max-width: 100%;"><i
-                        class="glyphicon glyphicon-list"></i></span>
-                    <select class="selectpicker form-control">
-                      <option>A really long option to push the menu over the edget</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Email</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email"
-                      placeholder="Email" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Phone Number</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber"
-                      placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div>
-                </div>
-              </div>
+              <button type="submit" class="btn btn-primary">Create</button>
             </fieldset>
           </form>
         </td>
