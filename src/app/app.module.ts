@@ -41,12 +41,13 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'create-customer', component: ManageCustomerComponent },
+      { path: 'customers/new', component: ManageCustomerComponent },
+      { path: 'customers/:id', component: ManageCustomerComponent },
+      { path: 'customers', component: ViewCustomerComponent },
       { path: 'create-enquiry', component: ManageEnquiryComponent },
       { path: 'create-order', component: ManageOrderComponent },
       { path: 'home', component: HomeComponent },
       { path: 'returns', component: ManageReturnsComponent },
-      { path: 'view-customer', component: ViewCustomerComponent },
       { path: 'view-enquiry', component: ViewEnquiryComponent },
       { path: 'view-order', component: ViewOrderComponent }
     ])

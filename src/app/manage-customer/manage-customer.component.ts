@@ -2,7 +2,7 @@ import { CustomerService } from './../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Customer } from '../models/customer';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-customer',
@@ -17,13 +17,15 @@ export class ManageCustomerComponent implements OnInit {
   customerDetails: Customer = new Customer();
 
   constructor(
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
     private customerService: CustomerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    // console.log(this.id);
     if (this.id) {
       this.customerService.getCustomer(this.id).subscribe(data => {
         this.customerDetails = data;
@@ -34,32 +36,20 @@ export class ManageCustomerComponent implements OnInit {
     }
   }
 
-  getCustomer() {
-    this.customerService.getCustomer(this.id).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  createCustomer(form) {
-    this.customerService.addCustomer(form).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-
-
-
-
-
-  onSubmit() {
-
-    this.completeItemService.addOrUpdate(this.itemComplete).subscribe(data => {
-      // console.log(data);
-      this.isReadOnly = true;
-    });
-  }
-
   edit() {
     this.isReadOnly = false;
+  }
+
+  delete() {
+    this.customerService.deleteCustomer(this.id).subscribe(data => {
+      this.router.navigateByUrl('customers');
+      console.log(data);
+    });
+  }
+
+  onSubmit() {
+    this.customerService.addCustomer(this.customerDetails).subscribe(data => {
+      console.log(data);
+    });
   }
 }

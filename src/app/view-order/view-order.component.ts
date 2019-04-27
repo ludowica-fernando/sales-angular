@@ -14,7 +14,7 @@ export class ViewOrderComponent implements OnInit {
   order: Order = {
     id: null,
     businessId: null,
-    name: null,
+    customerName: null,
     item: null,
     price: null,
     qty: null,

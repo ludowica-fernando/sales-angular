@@ -16,7 +16,7 @@ export class CustomerService {
   }
 
   getCustomer(id) {
-    return this.http.get<Customer>(this.apiUrl + '/${id}');
+    return this.http.get<Customer>(this.apiUrl + `/${id}`);
   }
 
   addCustomer(customer) {
@@ -25,5 +25,9 @@ export class CustomerService {
 
   updateCustomer(customer) {
     return this.http.put(this.apiUrl, customer);
+  }
+
+  deleteCustomer(id) {
+    return this.http.delete(this.apiUrl + `/${id}`);
   }
 }

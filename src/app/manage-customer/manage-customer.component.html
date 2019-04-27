@@ -96,22 +96,58 @@
 <div class="container">
     <h3>Item Complete</h3>
 
-    <form #itemCompleteForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
-
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
         <div class="form-row">
-
             <div class="form-group col-md-3">
                 <label for="id">ID</label>
-                <input #id="ngModel" [(ngModel)]="itemComplete.id" name="id" id="id" type="text" class="form-control"
+                <input #id="ngModel" [(ngModel)]="customerDetails.id" name="id" id="id" type="text" class="form-control"
                     [readonly]="true">
             </div>
         </div>
-
         <div class="form-group">
             <label for="name">Name</label>
-            <input #name="ngModel" [(ngModel)]="itemComplete.name" name="name" id="name" type="text"
+            <input #name="ngModel" [(ngModel)]="customerDetails.name" name="name" id="name" type="text"
                 class="form-control col-md-9" required [readonly]="isReadOnly">
-            <div class="invalid-feedback d-block"> Name is Required </div>
+        </div>
+        <div class="form-group">
+            <label for="tradingName">Trading Name</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.tradingName" name="tradingName" id="tradingName"
+                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="paymentFlag">Credit Status</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.paymentFlag" name="paymentFlag" id="paymentFlag"
+                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="mainLocation">Main Location</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.mainLocation" name="mainLocation" id="mainLocation"
+                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="deliveryLocation">Delivery Location</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.deliveryLocation" name="deliveryLocation"
+                id="deliveryLocation" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="collectionLocation">Collection Location</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.collectionLocation" name="collectionLocation"
+                id="collectionLocation" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.email" name="email" id="email" type="text"
+                class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div class="form-group">
+            <label for="telephone">Telephone</label>
+            <input #name="ngModel" [(ngModel)]="customerDetails.telephone" name="telephone" id="telephone" type="text"
+                class="form-control col-md-9" required [readonly]="isReadOnly">
+        </div>
+        <div>
+            <button class="btn btn-success" [disabled]="!customerForm.valid || isReadOnly">Save</button>
+            <button *ngIf="customerDetails.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
+            <button *ngIf="customerDetails.id" type="button" (click)="delete()" class="btn btn-danger">Delete</button>
         </div>
     </form>
 </div>
