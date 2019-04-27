@@ -1,153 +1,76 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- <div class="container">
+<div class="container">
     <table class="table table-striped">
         <tbody>
             <tr>
                 <td colspan="1">
-                    <form class="well form-horizontal" #form="ngForm" (ngSubmit)="createCustomer(form.value)">
+                    <h3>Manage Customer Details</h3>
+                    <form class="well form-horizontal" #customerForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
                         <fieldset>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Full Name</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-user"></i></span><input type="text"
-                                            class="form-control" id="name" name="name" required ngModel></div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="id">ID</label>
+                                    <input #id="ngModel" [(ngModel)]="customerDetails.id" name="id" id="id" type="text"
+                                        class="form-control" [readonly]="true">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Trading Name</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-home"></i></span><input type="text"
-                                            class="form-control" id="tradingName" name="tradingName" ngModel></div>
-                                </div>
+                                <label for="name">Name</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.name" name="name" id="name"
+                                    type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Main Location</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-home"></i></span><input type="text"
-                                            class="form-control" id="mainLocation" name="mainLocation" ngModel></div>
-                                </div>
+                                <label for="tradingName">Trading Name</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.tradingName" name="tradingName"
+                                    id="tradingName" type="text" class="form-control col-md-9" required
+                                    [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Delivery Location</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-home"></i></span><input type="text"
-                                            class="form-control" id="deliveryLocation" name="deliveryLocation" ngModel>
-                                    </div>
-                                </div>
+                                <label for="paymentFlag">Credit Status</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.paymentFlag" name="paymentFlag"
+                                    id="paymentFlag" type="text" class="form-control col-md-9" required
+                                    [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Collection Location</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-home"></i></span><input type="text"
-                                            class="form-control" id="collectionLocation" name="collectionLocation"
-                                            ngModel>
-                                    </div>
-                                </div>
+                                <label for="mainLocation">Main Location</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.mainLocation" name="mainLocation"
+                                    id="mainLocation" type="text" class="form-control col-md-9" required
+                                    [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Telephone</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-home"></i></span><input type="text"
-                                            class="form-control" id="telephone" name="telephone" ngModel></div>
-                                </div>
+                                <label for="deliveryLocation">Delivery Location</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.deliveryLocation"
+                                    name="deliveryLocation" id="deliveryLocation" type="text"
+                                    class="form-control col-md-9" required [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Email</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-envelope"></i></span><input type="email"
-                                            class="form-control" id="email" name="email" ngModel></div>
-                                </div>
+                                <label for="collectionLocation">Collection Location</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.collectionLocation"
+                                    name="collectionLocation" id="collectionLocation" type="text"
+                                    class="form-control col-md-9" required [readonly]="isReadOnly">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Payment Flag</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" style="max-width: 100%;"><i
-                                                class="glyphicon glyphicon-list"></i></span>
-                                        <select class="selectpicker form-control" id="paymentFlag" name="paymentFlag"
-                                            ngModel>
-                                            <option>Clear</option>
-                                            <option>Blocked</option>
-                                            <option>Pending</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <label for="email">Email</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.email" name="email" id="email"
+                                    type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
                             </div>
-                            <button type="submit" class="block">Create</button><br>
+                            <div class="form-group">
+                                <label for="telephone">Telephone</label>
+                                <input #name="ngModel" [(ngModel)]="customerDetails.telephone" name="telephone"
+                                    id="telephone" type="text" class="form-control col-md-9" required
+                                    [readonly]="isReadOnly">
+                            </div>
+                            <div>
+                                <button class="btn btn-success"
+                                    [disabled]="!customerForm.valid || isReadOnly">Save</button>
+                                <button *ngIf="customerDetails.id" type="button" (click)="edit()"
+                                    class="btn btn-primary">Edit</button>
+                                <button *ngIf="customerDetails.id" type="button" (click)="delete()"
+                                    class="btn btn-danger">Delete</button>
+                            </div>
                         </fieldset>
                     </form>
                 </td>
             </tr>
         </tbody>
     </table>
-</div> -->
-
-<div class="container">
-    <h3>Item Complete</h3>
-
-    <form #customerForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="id">ID</label>
-                <input #id="ngModel" [(ngModel)]="customerDetails.id" name="id" id="id" type="text" class="form-control"
-                    [readonly]="true">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.name" name="name" id="name" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="tradingName">Trading Name</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.tradingName" name="tradingName" id="tradingName"
-                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="paymentFlag">Credit Status</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.paymentFlag" name="paymentFlag" id="paymentFlag"
-                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="mainLocation">Main Location</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.mainLocation" name="mainLocation" id="mainLocation"
-                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="deliveryLocation">Delivery Location</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.deliveryLocation" name="deliveryLocation"
-                id="deliveryLocation" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="collectionLocation">Collection Location</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.collectionLocation" name="collectionLocation"
-                id="collectionLocation" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.email" name="email" id="email" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div class="form-group">
-            <label for="telephone">Telephone</label>
-            <input #name="ngModel" [(ngModel)]="customerDetails.telephone" name="telephone" id="telephone" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-        </div>
-        <div>
-            <button class="btn btn-success" [disabled]="!customerForm.valid || isReadOnly">Save</button>
-            <button *ngIf="customerDetails.id" type="button" (click)="edit()" class="btn btn-primary">Edit</button>
-            <button *ngIf="customerDetails.id" type="button" (click)="delete()" class="btn btn-danger">Delete</button>
-        </div>
-    </form>
 </div>

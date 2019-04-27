@@ -18,6 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
+import { EnquiryService } from './services/enquiry.service';
+import { OrdersService } from './services/orders.service';
 
 @NgModule({
   declarations: [
@@ -40,20 +42,23 @@ import { ViewOrderComponent } from './view-order/view-order.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'customers/new', component: ManageCustomerComponent },
       { path: 'customers/:id', component: ManageCustomerComponent },
       { path: 'customers', component: ViewCustomerComponent },
-      { path: 'create-enquiry', component: ManageEnquiryComponent },
+      { path: 'enquiries/new', component: ManageEnquiryComponent },
+      { path: 'enquiries/:id', component: ManageEnquiryComponent },
+      { path: 'enquiries', component: ViewEnquiryComponent },
       { path: 'create-order', component: ManageOrderComponent },
-      { path: 'home', component: HomeComponent },
       { path: 'returns', component: ManageReturnsComponent },
-      { path: 'view-enquiry', component: ViewEnquiryComponent },
       { path: 'view-order', component: ViewOrderComponent }
     ])
   ],
   providers: [
     CustomerService,
+    EnquiryService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })

@@ -25,7 +25,6 @@ export class ManageCustomerComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    // console.log(this.id);
     if (this.id) {
       this.customerService.getCustomer(this.id).subscribe(data => {
         this.customerDetails = data;

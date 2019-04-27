@@ -6,9 +6,7 @@
         <th scope="col">Customer ID</th>
         <th scope="col">Item</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Item Availability</th>
-        <th scope="col">Delivery Method</th>
-        <th scope="col">Credit Status</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -17,9 +15,9 @@
         <td>{{ enquiry.customerId }}</td>
         <td>{{ enquiry.item }}</td>
         <td>{{ enquiry.qty }}</td>
-        <td>{{ enquiry.itemAvailability }}</td>
-        <td>{{ enquiry.deliveryMethod }}</td>
-        <td>{{ enquiry.creditStatus }}</td>
+        <td>
+          <a [routerLink]="[enquiry.id]">Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>
