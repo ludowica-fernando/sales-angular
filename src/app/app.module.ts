@@ -5,7 +5,6 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -50,9 +49,10 @@ import { OrdersService } from './services/orders.service';
       { path: 'enquiries/new', component: ManageEnquiryComponent },
       { path: 'enquiries/:id', component: ManageEnquiryComponent },
       { path: 'enquiries', component: ViewEnquiryComponent },
-      { path: 'create-order', component: ManageOrderComponent },
-      { path: 'returns', component: ManageReturnsComponent },
-      { path: 'view-order', component: ViewOrderComponent }
+      { path: 'orders/new', component: ManageOrderComponent },
+      { path: 'orders/:id', component: ManageOrderComponent },
+      { path: 'orders', component: ViewOrderComponent },
+      { path: 'returns', component: ManageReturnsComponent }
     ])
   ],
   providers: [

@@ -1,3 +1,4 @@
+import { Order } from './../models/order';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class OrdersService {
 
-  apiUrl = "http://localhost:8080/orders";
+  apiUrl = "/api/orders";
 
   constructor(private http : HttpClient) { }
 
@@ -15,10 +16,18 @@ export class OrdersService {
   }
 
   getOrder(id) {
-    return this.http.get(this.apiUrl + '/${id}');
+    return this.http.get<Order>(this.apiUrl + `/${id}`);
   }
 
   addOrder(order){
     return this.http.post(this.apiUrl, order);
+  }
+
+  updateOrder(order) {
+    return this.http.put(this.apiUrl, order);
+  }
+
+  deleteOrder(id) {
+    return this.http.delete(this.apiUrl + `/${id}`);
   }
 }

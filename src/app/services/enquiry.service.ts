@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class EnquiryService {
 
-  apiUrl = "http://localhost:8080/enquiry";
+  apiUrl = "/api/enquiry";
 
   constructor(private http: HttpClient) { }
 

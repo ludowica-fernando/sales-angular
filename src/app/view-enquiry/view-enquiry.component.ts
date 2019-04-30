@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Enquiry } from '../models/enquiry';
 import { EnquiryService } from '../services/enquiry.service';
 
 @Component({
@@ -11,16 +10,6 @@ import { EnquiryService } from '../services/enquiry.service';
 export class ViewEnquiryComponent implements OnInit {
 
   enquiryList = [];
-
-  customer: Enquiry = {
-    id: null,
-    customerId: null,
-    item: null,
-    qty: null,
-    itemAvailability: null,
-    deliveryMethod: null,
-    creditStatus: null
-  }
 
   constructor(
     private enquiryService: EnquiryService

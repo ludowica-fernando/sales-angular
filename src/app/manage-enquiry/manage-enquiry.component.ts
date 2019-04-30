@@ -57,4 +57,14 @@ export class ManageEnquiryComponent implements OnInit {
   //     console.log(form);
   //   });
   // }
+
+  // hide = true;
+  // onChange(option) {
+  //   if (option == 'courier') {
+  //     this.hide = false;
+  //   }
+  //   else {
+  //     this.hide = true;
+  //   }
+  // }
 }

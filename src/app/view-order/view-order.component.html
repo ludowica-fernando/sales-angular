@@ -3,33 +3,25 @@
     <thead>
       <tr>
         <th scope="col">Order ID</th>
-        <th scope="col">Business ID</th>
         <th scope="col">Customer ID</th>
-        <th scope="col">Customer Name</th>
         <th scope="col">Item</th>
-        <th scope="col">Price</th>
         <th scope="col">Quantity</th>
         <th scope="col">Delivery Date</th>
-        <th scope="col">Mode of Shipment</th>
-        <th scope="col">Order Status</th>
-        <th scope="col">Production Status</th>
-        <th scope="col">Warehouse Status</th>
+        <!-- <th scope="col">Order Status</th> -->
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let order of orderList">
         <td>{{ order.id }}</td>
-        <td>{{ order.businessId }}</td>
         <td>{{ order.id }}</td>
-        <td>{{ order.customerName }}</td>
         <td>{{ order.item }}</td>
-        <td>{{ order.price }}</td>
         <td>{{ order.qty }}</td>
         <td>{{ order.deliveryDate }}</td>
-        <td>{{ order.modeOfShipment }}</td>
-        <td>{{ order.orderStatus.productionStatus }}</td>
-        <td>{{ order.orderStatus.orderStatus }}</td>
-        <td>{{ order.orderStatus.warehouseStatus }}</td>
+        <!-- <td>{{ order.orderStatus.orderStatus }}</td> -->
+        <td>
+          <a [routerLink]="[order.id]">Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>

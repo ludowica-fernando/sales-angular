@@ -1,6 +1,8 @@
+import { OrdersService } from './../services/orders.service';
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../models/order';
-import { OrdersService } from '../services/orders.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-manage-order',
@@ -9,27 +11,45 @@ import { OrdersService } from '../services/orders.service';
 })
 export class ManageOrderComponent implements OnInit {
 
-  order: Order = {
-    id: null,
-    businessId: null,
-    customerName: null,
-    item: null,
-    price: null,
-    qty: null,
-    deliveryDate: null,
-    modeOfShipment: null,
-    orderStatus: {
-      productionStatus: null,
-      orderStatus: null,
-      warehouseStatus: null
-    }
-  };
+  id: string;
+  isReadOnly = true;
+  orderList = [];
+  orderDetails: Order = new Order();
 
   constructor(
-    private orderService: OrdersService
+    private route: ActivatedRoute,
+    private orderService: OrdersService,
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.orderService.getOrder(this.id).subscribe(data => {
+        this.orderDetails = data;
+      });
+    }
+    else {
+      this.isReadOnly = false;
+    }
+  }
+
+  edit() {
+    this.isReadOnly = false;
+  }
+
+  delete() {
+    this.orderService.deleteOrder(this.id).subscribe(data => {
+      this.router.navigateByUrl('orders');
+      console.log(data);
+    });
+  }
+
+  onSubmit() {
+    this.orderService.addOrder(this.orderDetails).subscribe(data => {
+      console.log(data);
+    });
   }
 
   // hide = true;
@@ -42,10 +62,10 @@ export class ManageOrderComponent implements OnInit {
   //   }
   // }
 
-  createOrder() {
-    this.orderService.addOrder(this.order).subscribe(data => {
-      console.log(data);
-    });
-  }
+  // createOrder() {
+  //   this.orderService.addOrder(this.order).subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
 
 }

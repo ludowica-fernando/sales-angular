@@ -1,79 +1,81 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <div class="container">
   <table class="table table-striped">
     <tbody>
       <tr>
         <td colspan="1">
-          <form #form="ngForm" (ngSubmit)="createOrder(form.value)">
-            <fieldset>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Full Name</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-user"></i></span><input #name="ngModel"
-                      [(ngModel)]="order.customerName" type="text" class="form-control" id="customerName"
-                      name="customerName" required></div><br>
-                </div>
+          <h3>Manage Order Details</h3>
+          <form #orderForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="id">Order ID</label>
+                <input #id="ngModel" [(ngModel)]="orderDetails.id" name="id" id="id" type="text" class="form-control"
+                  [readonly]="true">
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Customer ID</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input #customerId="ngModel"
-                      [(ngModel)]="order.customerId" type="text" class="form-control" id="customerId" name="customerId">
-                  </div><br>
-                </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="businessId">Business ID</label>
+                <input #businessId="ngModel" [(ngModel)]="orderDetails.businessId" name="businessId" id="businessId"
+                  type="text" class="form-control" [readonly]="isReadOnly">
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Business ID</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-home"></i></span><input #businessId="ngModel"
-                      [(ngModel)]="order.businessId" type="text" class="form-control" id="businessId" name="businessId">
-                  </div><br>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Item</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group">
-                    <span class="input-group-addon" style="max-width: 100%;"><i
-                        class="glyphicon glyphicon-list"></i></span>
-                    <select class="selectpicker form-control" #item="ngModel" [(ngModel)]="order.item"
-                      class="form-control" id="item" name="item">
-                      <option>Handlebars</option>
-                      <option>Bicycle Forks</option>
-                      <option>Wheels</option>
-                      <option>Bicycle Frames</option>
-                      <option>Headtube</option>
-                      <option>Bicycle Stems</option>
-                      <option>Pedals</option>
-                    </select>
-                  </div><br>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Email</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email"
-                      placeholder="Email" class="form-control" required="true" value="" type="text"></div><br>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label">Phone Number</label>
-                <div class="col-md-8 inputGroupContainer">
-                  <div class="input-group"><span class="input-group-addon"><i
-                        class="glyphicon glyphicon-earphone"></i></span><input id="phoneNumber" name="phoneNumber"
-                      placeholder="Phone Number" class="form-control" required="true" value="" type="text"></div><br>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary">Create</button>
-            </fieldset>
+            </div>
+            <div class="form-group">
+              <label for="customerId">Customer ID</label>
+              <input #customerId="ngModel" [(ngModel)]="orderDetails.customerId" name="customerId" id="customerId" type="text"
+                class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="customerName">Customer Name</label>
+              <input #customerName="ngModel" [(ngModel)]="orderDetails.customerName" name="customerName" id="customerName" type="text"
+                class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="item">Item</label>
+              <input #item="ngModel" [(ngModel)]="orderDetails.item" name="item"
+                id="item" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="qty">Quantity</label>
+              <input #qty="ngModel" [(ngModel)]="orderDetails.qty" name="qty"
+                id="qty" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input #price="ngModel" [(ngModel)]="orderDetails.price" name="price"
+                id="price" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="deliveryDate">Delivery Date</label>
+              <input #deliveryDate="ngModel" [(ngModel)]="orderDetails.deliveryDate" name="deliveryDate"
+                id="deliveryDate" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="modeOfShipment">Mode of Shipment</label>
+              <input #modeOfShipment="ngModel" [(ngModel)]="orderDetails.modeOfShipment" name="modeOfShipment"
+                id="modeOfShipment" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <!-- <div class="form-group">
+              <label for="productionStatus">Production Status</label>
+              <input #productionStatus="ngModel" [(ngModel)]="orderDetails.orderStatus.productionStatus" name="productionStatus"
+                id="productionStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="warehouseStatus">Warehouse Status</label>
+              <input #warehouseStatus="ngModel" [(ngModel)]="orderDetails.orderStatus.warehouseStatus" name="warehouseStatus"
+                id="warehouseStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div>
+            <div class="form-group">
+              <label for="orderStatus">Order Status</label>
+              <input #orderStatus="ngModel" [(ngModel)]="orderDetails.orderStatus.orderStatus" name="orderStatus"
+                id="orderStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+            </div> -->
+            <div class="btn-group" role="group">
+              <button class="btn btn-success btn-lg" [disabled]="!orderForm.valid || isReadOnly">Save</button>
+              <button class="btn btn-primary btn-lg" *ngIf="orderDetails.id" type="button"
+                (click)="edit()">Edit</button>
+              <button class="btn btn-danger btn-lg" *ngIf="orderDetails.id" type="button"
+                (click)="delete()">Delete</button>
+            </div>
           </form>
         </td>
       </tr>
