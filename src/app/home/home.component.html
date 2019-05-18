@@ -1,71 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
 <div class="container">
   <div class="card-deck">
     <div class="card">
       <img src="https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Customers</h5>
+        <h5 class="card-title">New Customer</h5>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Manage Customers</button>
+      <a routerLink="/customers/new" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
     </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Manage Existing Customers</h5>
+      </div>
+      <a routerLink="/customers" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
+    </div>
+  </div>
+</div>
 
+<div class="container">
+  <div class="card-deck">
     <div class="card">
       <img src="https://images.pexels.com/photos/590045/pexels-photo-590045.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Enquiries</h5>
+        <h5 class="card-title">New Enquiry</h5>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Manage Enquiries</button>
+      <a routerLink="/enquiries/new" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
     </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/590045/pexels-photo-590045.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Manage Existing Enquiries</h5>
+      </div>
+      <a routerLink="/enquiries" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
+    </div>
+  </div>
+</div>
 
+<div class="container">
+  <div class="card-deck">
     <div class="card">
       <img
         src="https://images.pexels.com/photos/1323592/pexels-photo-1323592.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Sales Orders</h5>
+        <h5 class="card-title">New Order</h5>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Manage Orders</button>
+      <a routerLink="/orders/new" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.pexels.com/photos/1323592/pexels-photo-1323592.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">Manage Sales Orders</h5>
+      </div>
+      <a routerLink="/orders" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
     </div>
   </div>
+
 </div>
 
 <div class="container">
@@ -77,17 +73,16 @@
       <div class="card-body">
         <h5 class="card-title">Customer Returns</h5>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Manage Orders</button>
+      <a routerLink="/customers/new" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
     </div>
 
     <div class="card">
-      <img
-        src="https://images.pexels.com/photos/374720/pexels-photo-374720.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      <img src="https://images.pexels.com/photos/374720/pexels-photo-374720.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Customer Purchase History</h5>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Manage Orders</button>
+      <a routerLink="/customers/new" class="btn btn-primary"> <i class="fa fa-arrow-left"></i>Proceed</a>
     </div>
   </div>
 </div>

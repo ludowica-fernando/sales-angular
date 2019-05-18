@@ -1,6 +1,8 @@
+import { Customer } from './customer';
+import { EnquiryItem } from './enquiry-item';
+
 export class Enquiry {
     id: number;
-    customerId: number;
     item: string;
     qty: number;
     itemAvailability: string;
@@ -9,9 +11,11 @@ export class Enquiry {
     courierTelephone: number;
     creditStatus: string;
 
+    customer: Customer = new Customer();
+    enquiryItems: EnquiryItem[] = [];
+
     constructor() {
         this.id = null;
-        this.customerId = null;
         this.item = null;
         this.qty = null;
         this.itemAvailability = null;

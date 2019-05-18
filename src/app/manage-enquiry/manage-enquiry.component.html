@@ -1,123 +1,76 @@
-<!-- <div class="container">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <td colspan="1">
-          <h3>Manage Enquiry Details</h3>
-          <form #enquiryForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="id">Order ID</label>
-                <input #id="ngModel" [(ngModel)]="enquiryDetails.id" name="id" id="id" type="text" class="form-control"
-                  [readonly]="true">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="id">Customer ID</label>
-                <input #id="ngModel" [(ngModel)]="enquiryDetails.customerId" name="customerId" id="customerId"
-                  type="text" class="form-control" [readonly]="isReadOnly">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="item">Item</label>
-              <input #item="ngModel" [(ngModel)]="enquiryDetails.item" name="item" id="item" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="qty">Quantity</label>
-              <input #qty="ngModel" [(ngModel)]="enquiryDetails.qty" name="qty" id="qty" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="itemAvailability">Item Availability</label>
-              <input #itemAvailability="ngModel" [(ngModel)]="enquiryDetails.itemAvailability" name="itemAvailability"
-                id="itemAvailability" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="deliveryMethod">Delivery Method</label>
-              <select #deliveryMethod="ngModel" [(ngModel)]="enquiryDetails.deliveryMethod" name="deliveryMethod"
-                id="deliveryMethod" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-                <option value="courier">Courier</option>
-                <option value="pickup">Pick Up</option>
-              </select>
-
-              <div class="form-group" *ngIf="enquiryDetails.deliveryMethod == 'courier'">
-                <label for="name">Enter College Name:</label>
-                <input type="text" class="form-control" id="name" ngModel name="other_college_name" required>
-              </div>
-
-            </div>
-            <div class="form-group">
-              <label for="creditStatus">Credit Status</label>
-              <input #creditStatus="ngModel" [(ngModel)]="enquiryDetails.creditStatus" name="creditStatus"
-                id="creditStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="btn-group" role="group">
-              <button class="btn btn-success btn-lg" [disabled]="!enquiryForm.valid || isReadOnly">Save</button>
-              <button class="btn btn-primary btn-lg" *ngIf="enquiryDetails.id" type="button"
-                (click)="edit()">Edit</button>
-              <button class="btn btn-danger btn-lg" *ngIf="enquiryDetails.id" type="button"
-                (click)="delete()">Delete</button>
-            </div>
-          </form>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
 <div class="container">
   <form #enquiryForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="id">Order ID</label>
-        <input #id="ngModel" [(ngModel)]="enquiryDetails.id" name="id" id="id" type="text" class="form-control"
+        <input #id="ngModel" [(ngModel)]="enquiry.id" name="id" id="id" type="text" class="form-control"
           [readonly]="true">
       </div>
     </div>
+
     <div class="form-group">
       <label for="qty">Quantity</label>
-      <input #qty="ngModel" [(ngModel)]="enquiryDetails.qty" name="qty" id="qty" type="text"
+      <input #qty="ngModel" [(ngModel)]="enquiry.qty" name="qty" id="qty" type="text"
         class="form-control col-md-9" required [readonly]="isReadOnly">
     </div>
+
     <div class="form-group">
       <label for="deliveryMethod">Delivery Method</label>
-      <select #deliveryMethod="ngModel" [(ngModel)]="enquiryDetails.deliveryMethod" name="deliveryMethod"
+      <select #deliveryMethod="ngModel" [(ngModel)]="enquiry.deliveryMethod" name="deliveryMethod"
         id="deliveryMethod" type="text" class="form-control col-md-9" required>
         <option value="courier">Courier</option>
         <option value="pickup">Pick Up</option>
       </select>
 
-      <div *ngIf="enquiryDetails.deliveryMethod == 'courier'">
+      <div *ngIf="enquiry.deliveryMethod == 'courier'">
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="courierName">Courier Name</label>
-            <input #courierName="ngModel" [(ngModel)]="enquiryDetails.courierName" name="courierName" id="courierName"
+            <input #courierName="ngModel" [(ngModel)]="enquiry.courierName" name="courierName" id="courierName"
               type="text" class="form-control" [readonly]="isReadOnly">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="courierTelephone">Courier Telephone</label>
-            <input #courierTelephone="ngModel" [(ngModel)]="enquiryDetails.courierTelephone" name="courierTelephone"
+            <input #courierTelephone="ngModel" [(ngModel)]="enquiry.courierTelephone" name="courierTelephone"
               id="courierTelephone" type="text" class="form-control" [readonly]="isReadOnly">
           </div>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <label for="id">Order ID</label>
-          <input #id="ngModel" [(ngModel)]="enquiryDetails.id" name="id" id="id" type="text" class="form-control"
-            [readonly]="true">
-        </div>
-      </div>
-
     </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="id">Credit Status</label>
+        <select #creditStatus="ngModel" [(ngModel)]="enquiry.creditStatus" name="creditStatus"
+          id="creditStatus" type="text" class="form-control col-md-9" required>
+          <option value="courier">Blocked</option>
+          <option value="pickup">Un-Blocked</option>
+        </select>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itemList">
+          <td></td>
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+
     <div class="btn-group" role="group">
-      <button class="btn btn-success btn-lg" [disabled]="!enquiryForm.valid || isReadOnly">Save</button>
-      <button class="btn btn-primary btn-lg" *ngIf="enquiryDetails.id" type="button" (click)="edit()">Edit</button>
-      <button class="btn btn-danger btn-lg" *ngIf="enquiryDetails.id" type="button" (click)="delete()">Delete</button>
+      <button class="btn btn-success" [disabled]="!enquiryForm.valid || isReadOnly">Save</button>
+      <button class="btn btn-primary" *ngIf="enquiry.id" type="button" (click)="edit()">Edit</button>
+      <button class="btn btn-danger" *ngIf="enquiry.id" type="button" (click)="delete()">Delete</button>
     </div>
   </form>
 </div>

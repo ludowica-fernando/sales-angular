@@ -14,7 +14,7 @@ export class ManageEnquiryComponent implements OnInit {
   id: string;
   isReadOnly = true;
   enquiryList = [];
-  enquiryDetails: Enquiry = new Enquiry();
+  enquiry: Enquiry = new Enquiry();
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class ManageEnquiryComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.enquiryService.getEnquiry(this.id).subscribe(data => {
-        this.enquiryDetails = data;
+        this.enquiry = data;
       });
     }
     else {
@@ -47,7 +47,7 @@ export class ManageEnquiryComponent implements OnInit {
   }
 
   onSubmit() {
-    this.enquiryService.addEnquiry(this.enquiryDetails).subscribe(data => {
+    this.enquiryService.addEnquiry(this.enquiry).subscribe(data => {
       console.log(data);
     });
   }
@@ -67,4 +67,5 @@ export class ManageEnquiryComponent implements OnInit {
   //     this.hide = true;
   //   }
   // }
+
 }

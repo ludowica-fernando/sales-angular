@@ -51,4 +51,5 @@ export class ManageCustomerComponent implements OnInit {
       console.log(data);
     });
   }
+
 }
