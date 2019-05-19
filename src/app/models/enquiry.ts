@@ -3,9 +3,6 @@ import { EnquiryItem } from './enquiry-item';
 
 export class Enquiry {
     id: number;
-    item: string;
-    qty: number;
-    itemAvailability: string;
     deliveryMethod: string;
     courierName: string;
     courierTelephone: number;
@@ -16,9 +13,6 @@ export class Enquiry {
 
     constructor() {
         this.id = null;
-        this.item = null;
-        this.qty = null;
-        this.itemAvailability = null;
         this.deliveryMethod = null;
         this.courierName = null;
         this.courierTelephone = null;

@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { EnquiryService } from '../services/enquiry.service';
 import { Enquiry } from '../models/enquiry';
 import { ToastrService } from 'ngx-toastr';
+import { CustomerService } from '../services/customer.service';
+import { ItemService } from '../services/item.service';
+import { Customer } from '../models/customer';
+import { Item } from '../models/item';
+import { EnquiryItem } from '../models/enquiry-item';
 
 @Component({
   selector: 'app-manage-enquiry',
@@ -13,18 +18,26 @@ export class ManageEnquiryComponent implements OnInit {
 
   id: string;
   isReadOnly = true;
-  enquiryList = [];
   enquiry: Enquiry = new Enquiry();
+  newEnquiryItem: EnquiryItem = new EnquiryItem();
+  customerList: Customer[] = [];
+  itemList: Item[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private enquiryService: EnquiryService,
+    private customerService: CustomerService,
+    private itemService: ItemService,
     private toastr: ToastrService,
     private router: Router
   ) { }
 
   ngOnInit() {
+
+    this.fetchData();
+
     this.id = this.route.snapshot.paramMap.get('id');
+
     if (this.id) {
       this.enquiryService.getEnquiry(this.id).subscribe(data => {
         this.enquiry = data;
@@ -33,6 +46,19 @@ export class ManageEnquiryComponent implements OnInit {
     else {
       this.isReadOnly = false;
     }
+  }
+
+  fetchData() {
+
+    this.customerService.getAll().subscribe(data => {
+      // console.log(data);
+      this.customerList = data;
+    });
+
+    this.itemService.getAll().subscribe(data => {
+      // console.log(data);
+      this.itemList = data;
+    });
   }
 
   edit() {
@@ -47,25 +73,34 @@ export class ManageEnquiryComponent implements OnInit {
   }
 
   onSubmit() {
+
+    console.log(this.enquiry);
     this.enquiryService.addEnquiry(this.enquiry).subscribe(data => {
       console.log(data);
     });
   }
 
-  // createEnquiry(form) {
-  //   this.enquiryService.addEnquiry(form).subscribe(data => {
-  //     console.log(form);
-  //   });
-  // }
+  compareByOptionId(idFirst, idSecond) {
+    return idFirst && idSecond && idFirst.id == idSecond.id;
+  }
 
-  // hide = true;
-  // onChange(option) {
-  //   if (option == 'courier') {
-  //     this.hide = false;
-  //   }
-  //   else {
-  //     this.hide = true;
-  //   }
-  // }
+  addItem() {
+
+    if (this.newEnquiryItem.item.quantity < this.newEnquiryItem.quantity) {
+      this.toastr.error("Insufficient Quantity!", "Error")
+    }
+    else if (this.newEnquiryItem.item.id && this.newEnquiryItem.quantity) {
+      this.enquiry.enquiryItems.push(this.newEnquiryItem)
+      this.newEnquiryItem = new EnquiryItem();
+    }
+    else {
+      this.toastr.error("Empty Fields!", "Error")
+    }
+
+  }
+
+  deleteItem(index) {
+    this.enquiry.enquiryItems.splice(index, 1);
+  }
 
 }
