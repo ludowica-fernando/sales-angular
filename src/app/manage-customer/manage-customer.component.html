@@ -24,11 +24,14 @@
                                     id="tradingName" type="text" class="form-control col-md-9" required
                                     [readonly]="isReadOnly">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-3">
                                 <label for="paymentFlag">Credit Status</label>
-                                <input #name="ngModel" [(ngModel)]="customerDetails.paymentFlag" name="paymentFlag"
-                                    id="paymentFlag" type="text" class="form-control col-md-9" required
-                                    [readonly]="isReadOnly">
+                                <select #name="ngModel" [(ngModel)]="customerDetails.paymentFlag" name="paymentFlag"
+                                    id="paymentFlag" class="form-control" required [disabled]="isReadOnly">
+                                    <option value="CLEAR">CLEAR</option>
+                                    <option value="BLOCKED">BLOCKED</option>
+                                    <option value="PENDING">PENDING</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="mainLocation">Main Location</label>
