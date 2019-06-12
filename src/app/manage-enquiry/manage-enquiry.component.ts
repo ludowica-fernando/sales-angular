@@ -74,11 +74,14 @@ export class ManageEnquiryComponent implements OnInit {
 
   onSubmit() {
 
-    console.log(this.enquiry);
-    
+    // console.log(this.enquiry);
+
     this.enquiryService.addEnquiry(this.enquiry).subscribe(data => {
-      console.log(data);
+      // console.log(data);
+      this.toastr.success("Successful!", "Success");
+      this.router.navigateByUrl('/enquiries');
     });
+
   }
 
   compareByOptionId(idFirst, idSecond) {
@@ -91,7 +94,8 @@ export class ManageEnquiryComponent implements OnInit {
       this.toastr.error("Insufficient Quantity!", "Error")
     }
     else if (this.newEnquiryItem.item.id && this.newEnquiryItem.quantity) {
-      this.enquiry.enquiryItems.push(this.newEnquiryItem)
+      // console.log(this.newEnquiryItem);
+      this.enquiry.enquiryItems.push(this.newEnquiryItem);
       this.newEnquiryItem = new EnquiryItem();
     }
     else {

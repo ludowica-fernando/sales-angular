@@ -5,11 +5,12 @@ export class Enquiry {
     id: number;
     deliveryMethod: string;
     courierName: string;
-    courierTelephone: number;
+    courierTelephone: string;
     creditStatus: string;
-
-    customer: Customer = new Customer();
+    createdDate: Date;
     enquiryItems: EnquiryItem[] = [];
+    customer: Customer = new Customer();
+
 
     constructor() {
         this.id = null;
@@ -17,5 +18,6 @@ export class Enquiry {
         this.courierName = null;
         this.courierTelephone = null;
         this.creditStatus = null;
+        this.createdDate = null;
     }
 }
