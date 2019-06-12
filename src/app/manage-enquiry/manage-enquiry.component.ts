@@ -75,6 +75,7 @@ export class ManageEnquiryComponent implements OnInit {
   onSubmit() {
 
     console.log(this.enquiry);
+    
     this.enquiryService.addEnquiry(this.enquiry).subscribe(data => {
       console.log(data);
     });

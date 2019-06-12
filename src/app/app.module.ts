@@ -37,6 +37,7 @@ import { OrdersService } from './services/orders.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     NgbModule,
     HttpClientModule,
