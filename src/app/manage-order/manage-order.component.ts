@@ -1,8 +1,10 @@
+import { CustomerService } from './../services/customer.service';
 import { OrdersService } from './../services/orders.service';
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../models/order';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Customer } from '../models/customer';
 
 @Component({
   selector: 'app-manage-order',
@@ -14,11 +16,14 @@ export class ManageOrderComponent implements OnInit {
   id: string;
   isReadOnly = true;
   orderList = [];
+  customerList: Customer[] = [];
   orderDetails: Order = new Order();
+  customerDetails: Customer = new Customer();
 
   constructor(
     private route: ActivatedRoute,
     private orderService: OrdersService,
+    private customerService: CustomerService,
     private toastr: ToastrService,
     private router: Router
   ) { }
@@ -33,6 +38,12 @@ export class ManageOrderComponent implements OnInit {
     else {
       this.isReadOnly = false;
     }
+  }
+
+  fetchData(){
+    this.customerService.getAll().subscribe(data =>{
+      this.customerList = data;
+    });
   }
 
   edit() {
@@ -50,6 +61,10 @@ export class ManageOrderComponent implements OnInit {
     this.orderService.addOrder(this.orderDetails).subscribe(data => {
       console.log(data);
     });
+  }
+
+  compareByOptionId(idFirst, idSecond) {
+    return idFirst && idSecond && idFirst.id == idSecond.id;
   }
 
   // hide = true;

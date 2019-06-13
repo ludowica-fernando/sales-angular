@@ -4,17 +4,21 @@
       <tr>
         <th scope="col">Enquiry ID</th>
         <th scope="col">Customer ID</th>
-        <th scope="col">Item</th>
-        <th scope="col">Quantity</th>
+        <!-- <th scope="col">Item</th>
+        <th scope="col">Quantity</th> -->
+        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let enquiry of enquiryList">
         <td>{{ enquiry.id }}</td>
-        <td>{{ enquiry.customerId }}</td>
-        <td>{{ enquiry.item }}</td>
-        <td>{{ enquiry.qty }}</td>
+        <td>{{ enquiry.customer.id }}</td>
+        <!-- <td>{{ enquiry.enquiryItem.item.name }}</td>
+        <td>{{ enquiry.enquiryItem.quantity }}</td> -->
+        <td>
+          <a [routerLink]="[enquiry.id]">Edit</a>
+        </td>
         <td>
           <a [routerLink]="[enquiry.id]">Edit</a>
         </td>

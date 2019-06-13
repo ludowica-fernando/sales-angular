@@ -9,8 +9,8 @@ export class Enquiry {
     creditStatus: string;
     createdDate: Date;
     enquiryItems: EnquiryItem[] = [];
+    enquiryItem : EnquiryItem = new EnquiryItem();
     customer: Customer = new Customer();
-
 
     constructor() {
         this.id = null;

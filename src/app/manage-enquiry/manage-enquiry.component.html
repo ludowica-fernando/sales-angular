@@ -55,8 +55,9 @@
       <label for="id">Credit Status</label>
       <select #creditStatus="ngModel" [(ngModel)]="enquiry.creditStatus" name="creditStatus" id="creditStatus"
         type="text" class="form-control col-md-3" required>
-        <option value="courier">Blocked</option>
-        <option value="pickup">Un-Blocked</option>
+        <option value="CLEAR">CLEAR</option>
+        <option value="BLOCKED">BLOCKED</option>
+        <option value="PENDING">PENDING</option>
       </select>
     </div>
 

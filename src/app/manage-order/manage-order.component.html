@@ -1,60 +1,54 @@
 <div class="container">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <td colspan="1">
-          <h3>Manage Order Details</h3>
-          <form #orderForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="id">Order ID</label>
-                <input #id="ngModel" [(ngModel)]="orderDetails.id" name="id" id="id" type="text" class="form-control"
-                  [readonly]="true">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="businessId">Business ID</label>
-                <input #businessId="ngModel" [(ngModel)]="orderDetails.businessId" name="businessId" id="businessId"
-                  type="text" class="form-control" [readonly]="isReadOnly">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="customerId">Customer ID</label>
-              <input #customerId="ngModel" [(ngModel)]="orderDetails.customerId" name="customerId" id="customerId"
-                type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="customerName">Customer Name</label>
-              <input #customerName="ngModel" [(ngModel)]="orderDetails.customerName" name="customerName"
-                id="customerName" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="item">Item</label>
-              <input #item="ngModel" [(ngModel)]="orderDetails.item" name="item" id="item" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="qty">Quantity</label>
-              <input #qty="ngModel" [(ngModel)]="orderDetails.qty" name="qty" id="qty" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input #price="ngModel" [(ngModel)]="orderDetails.price" name="price" id="price" type="text"
-                class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="deliveryDate">Delivery Date</label>
-              <input #deliveryDate="ngModel" [(ngModel)]="orderDetails.deliveryDate" name="deliveryDate"
-                id="deliveryDate" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <div class="form-group">
-              <label for="modeOfShipment">Mode of Shipment</label>
-              <input #modeOfShipment="ngModel" [(ngModel)]="orderDetails.modeOfShipment" name="modeOfShipment"
-                id="modeOfShipment" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
-            </div>
-            <!-- <div class="form-group">
+  <h2>Order</h2>
+  <form #orderForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="id">Order ID</label>
+        <input #id="ngModel" [(ngModel)]="orderDetails.id" name="id" id="id" type="text" class="form-control"
+          [readonly]="true">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="businessId">Business ID</label>
+        <input #businessId="ngModel" [(ngModel)]="orderDetails.businessId" name="businessId" id="businessId" type="text"
+          class="form-control" [readonly]="isReadOnly">
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="customer">Customer</label>
+      <select #customer="ngModel" [(ngModel)]="orderDetails.customer" [compareWith]="compareByOptionId" name="customer"
+        id="customer" class="form-control" required [disabled]="isReadOnly">
+        <option *ngFor="let customer of customerList" [ngValue]="customer"> {{customer.name}} </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="item">Item</label>
+      <input #item="ngModel" [(ngModel)]="orderDetails.item" name="item" id="item" type="text"
+        class="form-control col-md-9" required [readonly]="isReadOnly">
+    </div>
+    <div class="form-group">
+      <label for="qty">Quantity</label>
+      <input #qty="ngModel" [(ngModel)]="orderDetails.qty" name="qty" id="qty" type="text" class="form-control col-md-9"
+        required [readonly]="isReadOnly">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input #price="ngModel" [(ngModel)]="orderDetails.price" name="price" id="price" type="text"
+        class="form-control col-md-9" required [readonly]="isReadOnly">
+    </div>
+    <div class="form-group">
+      <label for="deliveryDate">Delivery Date</label>
+      <input #deliveryDate="ngModel" [(ngModel)]="orderDetails.deliveryDate" name="deliveryDate" id="deliveryDate"
+        type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+    </div>
+    <div class="form-group">
+      <label for="modeOfShipment">Mode of Shipment</label>
+      <input #modeOfShipment="ngModel" [(ngModel)]="orderDetails.modeOfShipment" name="modeOfShipment"
+        id="modeOfShipment" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
+    </div>
+    <!-- <div class="form-group">
               <label for="productionStatus">Production Status</label>
               <input #productionStatus="ngModel" [(ngModel)]="orderDetails.orderStatus.productionStatus" name="productionStatus"
                 id="productionStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
@@ -69,16 +63,10 @@
               <input #orderStatus="ngModel" [(ngModel)]="orderDetails.orderStatus.orderStatus" name="orderStatus"
                 id="orderStatus" type="text" class="form-control col-md-9" required [readonly]="isReadOnly">
             </div> -->
-            <div class="btn-group" role="group">
-              <button class="btn btn-success btn-lg" [disabled]="!orderForm.valid || isReadOnly">Save</button>
-              <button class="btn btn-primary btn-lg" *ngIf="orderDetails.id" type="button"
-                (click)="edit()">Edit</button>
-              <button class="btn btn-danger btn-lg" *ngIf="orderDetails.id" type="button"
-                (click)="delete()">Delete</button>
-            </div>
-          </form>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="btn-group" role="group">
+      <button class="btn btn-success btn-lg" [disabled]="!orderForm.valid || isReadOnly">Save</button>
+      <button class="btn btn-primary btn-lg" *ngIf="orderDetails.id" type="button" (click)="edit()">Edit</button>
+      <button class="btn btn-danger btn-lg" *ngIf="orderDetails.id" type="button" (click)="delete()">Delete</button>
+    </div>
+  </form>
 </div>

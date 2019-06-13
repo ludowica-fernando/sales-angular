@@ -1,3 +1,5 @@
+import { Customer } from './customer';
+
 export class Order {
     id: number;
     businessId: number;
@@ -8,6 +10,7 @@ export class Order {
     qty: number;
     deliveryDate: string;
     modeOfShipment: string;
+    customer: Customer = new Customer();
     // orderStatus: {
     //     productionStatus: string;
     //     orderStatus: string;

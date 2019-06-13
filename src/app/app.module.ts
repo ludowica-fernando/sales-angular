@@ -20,6 +20,7 @@ import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { EnquiryService } from './services/enquiry.service';
 import { OrdersService } from './services/orders.service';
+import { PromotionComponent } from './promotion/promotion.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OrdersService } from './services/orders.service';
     NavbarComponent,
     ViewCustomerComponent,
     ViewEnquiryComponent,
-    ViewOrderComponent
+    ViewOrderComponent,
+    PromotionComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { OrdersService } from './services/orders.service';
       { path: 'orders/new', component: ManageOrderComponent },
       { path: 'orders/:id', component: ManageOrderComponent },
       { path: 'orders', component: ViewOrderComponent },
-      { path: 'returns', component: ManageReturnsComponent }
+      { path: 'returns', component: ManageReturnsComponent },
+      { path: 'promotions', component: PromotionComponent }
     ])
   ],
   providers: [
