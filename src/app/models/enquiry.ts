@@ -8,8 +8,8 @@ export class Enquiry {
     courierTelephone: string;
     creditStatus: string;
     createdDate: Date;
+    status : string;
     enquiryItems: EnquiryItem[] = [];
-    enquiryItem : EnquiryItem = new EnquiryItem();
     customer: Customer = new Customer();
 
     constructor() {
@@ -19,5 +19,6 @@ export class Enquiry {
         this.courierTelephone = null;
         this.creditStatus = null;
         this.createdDate = null;
+        this.status = "Pending";
     }
 }

@@ -22,6 +22,7 @@ export class ViewEnquiryComponent implements OnInit {
   viewAllEnquiries() {
     this.enquiryService.getAll().subscribe(data => {
       this.enquiryList = data;
+      console.log(data);
     });
   }
 

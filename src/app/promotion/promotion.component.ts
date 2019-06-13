@@ -17,7 +17,7 @@ export class PromotionComponent implements OnInit {
 
   ngOnInit() {
     this.promotionService.getAll().subscribe(results =>{
-      this.promotionList = results;
+      this.promotionList = this.filterList = results;
       console.log(results);
     });
   }
